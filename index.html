@@ -20,43 +20,44 @@
     }
 
     .box{
-      max-width:420px;
+      max-width:460px;
       width:100%;
       background: rgba(255,255,255,0.12);
-      border-radius:20px;
-      padding:24px;
+      border-radius:22px;
+      padding:26px 24px;
       text-align:center;
     }
 
     h1{
-      margin:0 0 12px;
-      font-size:28px;
+      margin:0 0 14px;
+      font-size:30px;
+      font-weight:700;
     }
 
     p{
       font-size:17px;
-      line-height:1.6;
-      margin:12px 0;
+      line-height:1.65;
+      margin:14px 0;
     }
 
     .question{
-      margin-top:20px;
-      font-size:20px;
-      font-weight:600;
+      margin-top:22px;
+      font-size:21px;
+      font-weight:700;
     }
 
     .buttons{
-      margin-top:20px;
+      margin-top:22px;
       display:flex;
       flex-direction:column;
-      gap:12px;
+      gap:14px;
     }
 
     button{
       padding:14px;
       font-size:16px;
       border:none;
-      border-radius:14px;
+      border-radius:16px;
       font-weight:600;
       cursor:pointer;
     }
@@ -72,8 +73,8 @@
     }
 
     .footer{
-      margin-top:16px;
-      font-size:13px;
+      margin-top:18px;
+      font-size:14px;
       opacity:0.85;
     }
   </style>
@@ -81,50 +82,62 @@
 
 <body>
   <div class="box">
-    <h1>Victoria 💗</h1>
+    <h1>Victoria Itua</h1>
 
     <p>
-      I just want make this short and honest.
-      Since you enter my life, things don feel different in a good way.
+      I want to be honest with you and speak from my heart.
+      Since you came into my life, something real has changed for me.
+      Talking to you feels easy, natural, and comforting.
     </p>
 
     <p>
-      I enjoy talking to you. I enjoy your presence.
-      You make me smile without trying.
+      I enjoy our long conversations, the way we understand each other,
+      and the calm I feel just knowing you’re there.
+      I no dey feel like I’m forcing anything with you.
+      Everything just flows.
     </p>
 
     <p>
+      I respect you and the way you take your time with things.
       No pressure at all.
-      I just want you to know say how I feel about yu is real.
+      But I also know what I feel, and it’s not something small or casual.
+      It’s genuine, steady, and intentional.
     </p>
 
     <p>
-      <strong>Mo nife re.</strong><br>
-      (I love you.)
+      <strong>Mo nifẹ rẹ.</strong><br>
+      <span style="font-weight:400">(I love you.)</span>
+    </p>
+
+    <p>
+      I’m saying this because I truly want you.
+      I want to choose you properly, treat you with care,
+      and build something real with you.
     </p>
 
     <div class="question">
-      Will you be my girlfriend?
+      Victoria, will you be my girlfriend?
     </div>
 
     <div class="buttons">
-      <button class="yes" onclick="sayYes()">Yes 💖</button>
-      <button class="wait" onclick="wait()">Let’s take it slow 💭</button>
+      <button class="yes" onclick="sayYes()">Yes 💗</button>
+      <button class="wait" onclick="wait()">Let’s take it slow</button>
     </div>
 
     <div class="footer">
-      From Jamal
+      With sincerity,<br>
+      Jamal
     </div>
   </div>
 
   <script>
     function sayYes(){
-      const msg = encodeURIComponent("Yes Jamal 💖");
+      const msg = encodeURIComponent("Yes Jamal 💗");
       window.location.href = "sms:?&body=" + msg;
     }
 
     function wait(){
-      alert("That’s okay. No rush. I’m here 💗");
+      alert("That’s okay. I respect you, and I’m here.");
     }
   </script>
 </body>
