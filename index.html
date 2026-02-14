@@ -3,298 +3,238 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>For Grace 💗</title>
+  <title>For Victoria 💗</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --pink1:#fff0f6;
-      --pink2:#ffe3ee;
-      --pink3:#ffd3e3;
+      --pinkA:#fff2f7;
+      --pinkB:#ffe0ec;
+      --pinkC:#ffd1e3;
       --ink:#4a1c2a;
-      --btn:#ff5c93;
-      --btn2:#ff3f82;
-      --glass: rgba(255,255,255,.60);
-      --glass2: rgba(255,255,255,.72);
+      --glass:rgba(255,255,255,.65);
+      --btn:#ff5f98;
+      --imsg:#0b93f6;
     }
 
-    * { box-sizing: border-box; }
+    *{ box-sizing:border-box; }
 
     body{
       margin:0;
       min-height:100svh;
       padding: env(safe-area-inset-top) 14px env(safe-area-inset-bottom) 14px;
-      background: radial-gradient(1200px 700px at 20% 10%, var(--pink1), transparent 60%),
-                  radial-gradient(1000px 650px at 80% 20%, var(--pink2), transparent 55%),
-                  linear-gradient(135deg, var(--pink1), var(--pink3));
+      background:
+        radial-gradient(900px 600px at 15% 10%, var(--pinkA), transparent 60%),
+        radial-gradient(800px 600px at 85% 20%, var(--pinkB), transparent 55%),
+        linear-gradient(135deg, var(--pinkA), var(--pinkC));
       display:flex;
       align-items:center;
       justify-content:center;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--ink);
+      color:var(--ink);
       overflow:hidden;
     }
 
-    /* Hearts layer ABOVE everything (over the text) */
+    /* Floating hearts OVER text */
     .hearts{
       position:fixed;
       inset:0;
-      z-index: 999;
+      z-index:999;
       pointer-events:none;
       overflow:hidden;
     }
 
     .heart{
       position:absolute;
-      left: -10vw;
-      top: 0;
-      opacity: .55;
-      filter: drop-shadow(0 6px 14px rgba(0,0,0,.08));
-      will-change: transform, opacity;
-      animation: drift linear forwards;
+      font-size:20px;
+      opacity:.55;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,.08));
+      animation: float linear forwards;
       user-select:none;
     }
 
-    @keyframes drift{
-      0%   { transform: translate(-10vw, 110vh) rotate(0deg) scale(1); opacity: .15; }
-      10%  { opacity: .55; }
-      100% { transform: translate(120vw, -20vh) rotate(360deg) scale(1.25); opacity: .0; }
+    @keyframes float{
+      from{ transform: translate(-15vw, 110vh) rotate(0deg) scale(1); opacity:.15; }
+      10%{ opacity:.55; }
+      to{ transform: translate(120vw, -20vh) rotate(360deg) scale(1.25); opacity:0; }
     }
 
     .wrap{
       width:100%;
-      max-width: 720px;
+      max-width:720px;
       position:relative;
-      z-index: 10;
-      display:flex;
-      justify-content:center;
+      z-index:10;
     }
 
     .card{
-      width:100%;
-      border-radius: 26px;
-      padding: 22px 18px;
-      background: var(--glass);
+      background:var(--glass);
       backdrop-filter: blur(12px);
-      box-shadow: 0 22px 70px rgba(0,0,0,.15);
-      border: 1px solid rgba(255,255,255,.5);
-    }
-
-    /* iPhone friendly spacing */
-    @media (min-width: 420px){
-      .card{ padding: 34px 30px; }
-    }
-
-    .title{
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.1rem, 7vw, 3.1rem);
-      margin: 4px 0 6px 0;
-      letter-spacing: .2px;
+      border-radius:26px;
+      padding:22px 18px;
+      box-shadow:0 24px 70px rgba(0,0,0,.16);
+      border:1px solid rgba(255,255,255,.5);
       text-align:center;
     }
 
-    .subtitle{
-      text-align:center;
-      margin: 0 0 18px 0;
-      font-weight: 400;
-      opacity: .9;
-      font-size: 1.05rem;
+    @media (min-width:420px){
+      .card{ padding:34px 30px; }
     }
 
-    .msg{
-      font-size: 1.05rem;
-      line-height: 1.85;
-      margin: 0 0 14px 0;
-      text-align:center;
+    h1{
+      font-family:"Playfair Display", serif;
+      font-size: clamp(2.2rem, 7vw, 3.2rem);
+      margin:4px 0 6px 0;
+    }
+
+    h2{
+      margin:0 0 18px 0;
+      font-weight:400;
+      font-size:1.1rem;
+      opacity:.9;
+    }
+
+    p{
+      font-size:1.05rem;
+      line-height:1.9;
+      margin:0 0 14px 0;
     }
 
     .bigHeart{
-      text-align:center;
-      font-size: 2.5rem;
-      margin: 14px 0 14px 0;
-      animation: pulse 1.8s ease-in-out infinite;
+      font-size:2.6rem;
+      margin:14px 0;
+      animation:pulse 1.8s ease-in-out infinite;
     }
 
     @keyframes pulse{
-      0% { transform: scale(1); }
-      50% { transform: scale(1.12); }
-      100% { transform: scale(1); }
+      0%{ transform:scale(1); }
+      50%{ transform:scale(1.12); }
+      100%{ transform:scale(1); }
     }
 
     .btnRow{
       display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
       justify-content:center;
-      margin-top: 18px;
+      margin-top:18px;
     }
 
     button{
       border:none;
-      border-radius: 999px;
-      padding: 12px 18px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor:pointer;
-      background: var(--btn);
+      border-radius:999px;
+      padding:12px 22px;
+      font-size:1rem;
+      font-weight:600;
+      background:var(--btn);
       color:white;
-      box-shadow: 0 12px 28px rgba(255,92,147,.28);
-      transition: transform .15s ease, background .15s ease;
+      cursor:pointer;
+      box-shadow:0 12px 26px rgba(255,95,152,.32);
       -webkit-tap-highlight-color: transparent;
     }
 
-    button:active{
-      transform: translateY(1px);
-      background: var(--btn2);
+    /* iMessage bubble */
+    .imessage{
+      margin-top:18px;
+      display:flex;
+      justify-content:flex-end;
+      opacity:0;
+      transform: translateY(6px);
+      transition: all .35s ease;
     }
 
-    .ghost{
-      background: rgba(255,92,147,.16);
-      color: #7a1f38;
-      box-shadow:none;
-      border: 1px solid rgba(255,92,147,.35);
-      font-weight: 600;
+    .imessage.show{
+      opacity:1;
+      transform: translateY(0);
     }
 
-    .extra{
-      min-height: 28px;
-      margin-top: 14px;
-      text-align:center;
-      font-style: italic;
-      opacity: .95;
+    .bubble{
+      background:var(--imsg);
+      color:white;
+      padding:10px 14px;
+      border-radius:18px;
+      max-width:80%;
+      font-size:1rem;
+      line-height:1.4;
+      box-shadow:0 6px 18px rgba(11,147,246,.35);
     }
 
     .sign{
-      margin-top: 18px;
-      text-align:center;
-      font-size: 1.02rem;
+      margin-top:18px;
+      font-size:1.05rem;
       opacity:.95;
-    }
-
-    .smallNote{
-      margin-top: 10px;
-      text-align:center;
-      font-size: .9rem;
-      opacity: .75;
     }
   </style>
 </head>
 
 <body>
-  <!-- Hearts fly over everything -->
   <div class="hearts" id="hearts"></div>
 
   <div class="wrap">
     <div class="card">
-      <div class="title">Grace</div>
-      <div class="subtitle">My Valentine 💕</div>
+      <h1>Victoria</h1>
+      <h2>My Valentine 💕</h2>
 
-      <p class="msg">
-        I just want you to know I appreciate you so much. Thank you for staying with me, loving me, and being patient with me, even when I’m not always there physically.
+      <p>
+        I know it hasn’t been that long, but meeting you has honestly been one of the best things to happen to me. From the very beginning, you felt different in the best way.
       </p>
 
-      <p class="msg">
-        You make distance feel smaller. You make my days softer. And you remind me what real love looks like, calm, loyal, and sweet.
+      <p>
+        I love our long night talks, the midnight prayers, and even the little headache you give me sometimes. You’re my cute little problem, and I wouldn’t trade you for anything.
       </p>
 
-      <p class="msg">
-        I don’t take you for granted. Not for a second. I’m thankful it’s you, and I’m grateful for us.
+      <p>
+        You bring peace into my life in a way I didn’t even know I needed. Loving you feels natural, calm, and real.
       </p>
 
       <div class="bigHeart">💗</div>
 
-      <p class="msg">
-        Here’s to this Valentine’s Day, and to many more Valentine celebrations together. No matter what life looks like, I want you right beside me.
+      <p>
+        I want you to know this clearly. You are loved, deeply and genuinely, and as long as I’m here, you will always be loved by me.
       </p>
 
       <div class="btnRow">
-        <button onclick="showMessage()">Tap Me</button>
-        <button class="ghost" onclick="toggleMusic()" id="musicBtn">Play Music 🎶</button>
+        <button onclick="showReply()">Tap to see her reply 💬</button>
       </div>
 
-      <div class="extra" id="extra"></div>
+      <div class="imessage" id="reply">
+        <div class="bubble">I love you too Jamal 💗</div>
+      </div>
 
       <div class="sign">
         With love,<br />
-        <strong>BATO</strong>
-      </div>
-
-      <div class="smallNote">
-        If music doesn’t start, tap “Play Music” once. iPhone blocks autoplay sometimes.
+        <strong>Jamal</strong>
       </div>
     </div>
   </div>
 
-  <!-- Music -->
-  <audio id="bgMusic" loop preload="auto">
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9e7d3e2f89.mp3?filename=romantic-piano-112191.mp3" type="audio/mpeg">
-  </audio>
-
   <script>
-    function showMessage(){
-      document.getElementById("extra").innerText =
-        "You are my favorite kind of love, soft, real, and safe. Happy Valentine’s Day, Grace 💗";
+    function showReply(){
+      document.getElementById("reply").classList.add("show");
     }
 
-    // Music toggle
-    const music = document.getElementById("bgMusic");
-    const musicBtn = document.getElementById("musicBtn");
-
-    async function toggleMusic(){
-      try{
-        if(music.paused){
-          music.volume = 0.35;
-          await music.play();
-          musicBtn.textContent = "Pause Music 🔇";
-        } else {
-          music.pause();
-          musicBtn.textContent = "Play Music 🎶";
-        }
-      } catch(e){
-        musicBtn.textContent = "Tap Again 🎶";
-      }
-    }
-
-    // Hearts over text: diagonal drift across the screen
     const layer = document.getElementById("hearts");
     const symbols = ["💗","💖","💕","💞","💓","❤️"];
-    const MAX_HEARTS = 28; // keeps it smooth on iPhone
+    const MAX = 26;
 
-    function spawnHeart(){
-      if(layer.childElementCount > MAX_HEARTS) return;
+    function spawn(){
+      if(layer.childElementCount > MAX) return;
 
-      const el = document.createElement("div");
-      el.className = "heart";
-      el.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+      const h = document.createElement("div");
+      h.className = "heart";
+      h.textContent = symbols[Math.floor(Math.random()*symbols.length)];
 
-      const size = 14 + Math.random()*30;         // px
-      const duration = 6 + Math.random()*8;       // seconds
-      const startY = Math.random()*110;           // vh
-      const rotate = Math.floor(Math.random()*360);
+      const size = 14 + Math.random()*30;
+      const duration = 6 + Math.random()*8;
+      const startY = Math.random()*110;
 
-      el.style.fontSize = size + "px";
-      el.style.top = startY + "vh";
-      el.style.animationDuration = duration + "s";
-      el.style.transform = `translate(-10vw, 110vh) rotate(${rotate}deg)`;
+      h.style.fontSize = size + "px";
+      h.style.top = startY + "vh";
+      h.style.animationDuration = duration + "s";
 
-      layer.appendChild(el);
-
-      setTimeout(() => el.remove(), duration * 1000);
+      layer.appendChild(h);
+      setTimeout(()=>h.remove(), duration*1000);
     }
 
-    // steady flow that still looks “all over the text”
-    setInterval(spawnHeart, 280);
-
-    // Try to start music after first user interaction anywhere
-    document.addEventListener("click", async () => {
-      if(music.paused){
-        try{
-          music.volume = 0.35;
-          await music.play();
-          musicBtn.textContent = "Pause Music 🔇";
-        } catch(e){}
-      }
-    }, { once: true });
+    setInterval(spawn, 300);
   </script>
 </body>
 </html>
