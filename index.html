@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <!-- Safari iPhone friendly: prevents zooming from big text and respects safe areas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>For Victoria 💗</title>
 
@@ -13,7 +14,7 @@
       --pinkB:#ffe6f0;
       --pinkC:#ffd6e8;
       --ink:#4a1c2a;
-      --glass:rgba(255,255,255,.70);
+      --glass:rgba(255,255,255,.72);
     }
 
     *{ box-sizing:border-box; }
@@ -45,75 +46,88 @@
 
     .heart{
       position:absolute;
-      opacity:.55;
+      opacity:.52;
       filter: drop-shadow(0 6px 12px rgba(0,0,0,.08));
       animation: float linear forwards;
       user-select:none;
     }
 
     @keyframes float{
-      from{ transform: translate(-15vw, 110vh) rotate(0deg) scale(1); opacity:.12; }
-      12%{ opacity:.55; }
-      to{ transform: translate(120vw, -20vh) rotate(360deg) scale(1.22); opacity:0; }
+      from{ transform: translate(-15vw, 110vh) rotate(0deg) scale(1); opacity:.10; }
+      12%{ opacity:.52; }
+      to{ transform: translate(120vw, -20vh) rotate(360deg) scale(1.18); opacity:0; }
     }
 
+    /* iPhone Safari text-fit helpers */
     .wrap{
       width:100%;
-      max-width: 760px; /* fits iPhone 16 Pro Max comfortably */
+      max-width: 820px;
       position:relative;
       z-index:10;
+      display:flex;
+      justify-content:center;
     }
 
     .card{
+      width:100%;
+      max-width: 760px;
       background:var(--glass);
       backdrop-filter: blur(12px);
       border-radius:28px;
-      padding: 26px 20px;
-      box-shadow:0 26px 80px rgba(0,0,0,.14);
       border:1px solid rgba(255,255,255,.55);
+      box-shadow:0 26px 80px rgba(0,0,0,.14);
       text-align:center;
+
+      /* KEY: make the content always fit vertically on iPhone Safari */
+      max-height: calc(100svh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 32px);
+      overflow:auto;
+      -webkit-overflow-scrolling: touch;
+
+      /* KEY: responsive padding that shrinks if needed */
+      padding: clamp(18px, 3.4vh, 38px) clamp(16px, 4vw, 34px);
     }
 
-    @media (min-width: 430px){
-      .card{ padding: 38px 34px; }
-    }
+    /* Hide scrollbar without breaking scroll */
+    .card::-webkit-scrollbar{ width:0; height:0; }
 
     h1{
       font-family:"Playfair Display", serif;
-      font-size: clamp(2.3rem, 6.5vw, 3.3rem);
+      font-size: clamp(2.05rem, 5.4vw, 3.1rem);
       margin: 6px 0 6px 0;
       letter-spacing:.2px;
     }
 
     h2{
-      margin:0 0 18px 0;
+      margin:0 0 clamp(10px, 2.2vh, 18px) 0;
       font-weight:400;
-      font-size:1.12rem;
+      font-size: clamp(0.98rem, 2.2vw, 1.12rem);
       opacity:.9;
     }
 
+    /* KEY: use clamp so paragraphs never overflow badly */
     p{
-      font-size: 1.06rem;
-      line-height: 1.95;
-      margin: 0 0 14px 0;
+      font-size: clamp(0.98rem, 2.1vw, 1.06rem);
+      line-height: 1.78;
+      margin: 0 0 clamp(10px, 1.8vh, 14px) 0;
     }
 
     .bigHeart{
-      font-size: 2.7rem;
-      margin: 16px 0;
+      font-size: clamp(2.1rem, 5vw, 2.7rem);
+      margin: clamp(10px, 2vh, 16px) 0;
       animation:pulse 1.8s ease-in-out infinite;
     }
 
     @keyframes pulse{
       0%{ transform:scale(1); }
-      50%{ transform:scale(1.12); }
+      50%{ transform:scale(1.10); }
       100%{ transform:scale(1); }
     }
 
     .sign{
-      margin-top: 20px;
-      font-size: 1.05rem;
+      margin-top: clamp(12px, 2vh, 20px);
+      font-size: clamp(0.98rem, 2.1vw, 1.05rem);
       opacity: .95;
+      padding-bottom: 6px;
     }
   </style>
 </head>
@@ -131,12 +145,12 @@
       </p>
 
       <p>
-        I love our long night talks, the quiet moments that turn into laughter, and those midnight prayers that make me feel like we’re covered.
-        Even when you give me that little headache, I can’t help it. You’re my cute little problem, and you’re my favorite.
+        I love our long night talks, the little laughs that sneak in, and those midnight prayers that make everything feel protected.
+        Even when you give me that small headache, I love it because it’s you. You’re my cute little problem, and you’re my favorite.
       </p>
 
       <p>
-        You make me feel seen. You make love feel soft and safe. You bring warmth into my life in a way I didn’t know I needed.
+        You make love feel soft and safe. You bring warmth into my life in a way I didn’t even know I needed.
       </p>
 
       <div class="bigHeart">💗</div>
@@ -156,7 +170,7 @@
   <script>
     const layer = document.getElementById("hearts");
     const symbols = ["💗","💖","💕","💞","💓","❤️"];
-    const MAX = 28; // smooth on iPhone 16 Pro Max
+    const MAX = 26; // smooth on Safari
 
     function spawn(){
       if(layer.childElementCount > MAX) return;
@@ -165,7 +179,7 @@
       h.className = "heart";
       h.textContent = symbols[Math.floor(Math.random()*symbols.length)];
 
-      const size = 14 + Math.random()*30;
+      const size = 14 + Math.random()*28;
       const duration = 6 + Math.random()*8;
       const startY = Math.random()*110;
 
@@ -174,10 +188,10 @@
       h.style.animationDuration = duration + "s";
 
       layer.appendChild(h);
-      setTimeout(()=>h.remove(), duration*1000);
+      setTimeout(()=>h.remove(), duration * 1000);
     }
 
-    setInterval(spawn, 280);
+    setInterval(spawn, 300);
   </script>
 </body>
 </html>
