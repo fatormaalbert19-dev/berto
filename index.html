@@ -50,7 +50,6 @@
       opacity:.55;
       filter: drop-shadow(0 6px 12px rgba(0,0,0,.08));
       animation: float linear forwards;
-      user-select:none;
     }
 
     @keyframes float{
@@ -146,28 +145,28 @@
       <h2>My Valentine 💕</h2>
 
       <p>
-        I know it hasn’t been that long, but meeting you has been one of the best things to happen to me. You came into my life gently and changed it in the most beautiful way.
+        I know it hasn’t been that long, but meeting you has honestly been one of the best things to happen to me.
       </p>
 
       <p>
-        I love our long night talks, the midnight prayers, and even the little headache you give me sometimes. You’re my cute little problem, and I love you for it.
+        I enjoy our long night talks, the midnight prayers, and even the little headache you give me sometimes.
+        You’re my cute little problem, and I mean that with so much love.
       </p>
 
       <p>
-        You bring peace, warmth, and meaning into my life. Loving you feels natural and real.
+        You bring peace, warmth, and happiness into my life in a way I didn’t expect, and I’m grateful for you every day.
       </p>
 
       <div class="bigHeart">💗</div>
 
       <p>
-        I want you to know this clearly. You are loved, and you will always be loved by me.
+        I want you to know this clearly. You are loved, deeply and genuinely, and you will always be loved by me.
       </p>
 
-      <!-- CHANGE THE PHONE NUMBER BELOW -->
       <div class="btnRow">
         <a class="btn"
-           href="sms:+1234567890&body=thanku%20jamal">
-          Tap to text me 💬
+           href="sms:+19073709308&body=I%20love%20you%20too%20Jamal%20%F0%9F%8C%B8%F0%9F%AB%B6%F0%9F%8F%BF">
+          Tap to send me an iMessage 💬
         </a>
       </div>
 
@@ -181,28 +180,18 @@
   <script>
     const layer = document.getElementById("hearts");
     const symbols = ["💗","💖","💕","💞","💓","❤️"];
-    const MAX = 26;
 
-    function spawn(){
-      if(layer.childElementCount > MAX) return;
-
+    setInterval(()=>{
+      if(layer.childElementCount > 26) return;
       const h = document.createElement("div");
       h.className = "heart";
       h.textContent = symbols[Math.floor(Math.random()*symbols.length)];
-
-      const size = 14 + Math.random()*30;
-      const duration = 6 + Math.random()*8;
-      const startY = Math.random()*110;
-
-      h.style.fontSize = size + "px";
-      h.style.top = startY + "vh";
-      h.style.animationDuration = duration + "s";
-
+      h.style.fontSize = (14 + Math.random()*30) + "px";
+      h.style.top = (Math.random()*110) + "vh";
+      h.style.animationDuration = (6 + Math.random()*8) + "s";
       layer.appendChild(h);
-      setTimeout(()=>h.remove(), duration*1000);
-    }
-
-    setInterval(spawn, 300);
+      setTimeout(()=>h.remove(), 14000);
+    }, 300);
   </script>
 </body>
 </html>
