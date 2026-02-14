@@ -1,143 +1,119 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>For Victoria 💗</title>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Grace 💗</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <style>
-    body{
-      margin:0;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background:#ff6fae;
-      color:#ffffff;
-      padding:20px;
-      box-sizing:border-box;
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffd1dc, #ff9eb5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      color: #4a1c2a;
     }
 
-    .box{
-      max-width:460px;
-      width:100%;
-      background: rgba(255,255,255,0.12);
-      border-radius:22px;
-      padding:26px 24px;
-      text-align:center;
+    .card {
+      max-width: 720px;
+      padding: 55px;
+      background: rgba(255, 255, 255, 0.55);
+      border-radius: 22px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+      text-align: center;
     }
 
-    h1{
-      margin:0 0 14px;
-      font-size:30px;
-      font-weight:700;
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 8px;
     }
 
-    p{
-      font-size:17px;
-      line-height:1.65;
-      margin:14px 0;
+    h2 {
+      font-weight: 400;
+      font-size: 1.2rem;
+      opacity: 0.85;
+      margin-bottom: 35px;
     }
 
-    .question{
-      margin-top:22px;
-      font-size:21px;
-      font-weight:700;
+    p {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      margin-bottom: 22px;
     }
 
-    .buttons{
-      margin-top:22px;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
+    .heart {
+      font-size: 2.8rem;
+      margin: 28px 0;
+      animation: pulse 1.8s infinite;
     }
 
-    button{
-      padding:14px;
-      font-size:16px;
-      border:none;
-      border-radius:16px;
-      font-weight:600;
-      cursor:pointer;
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
     }
 
-    .yes{
-      background:#ffffff;
-      color:#ff2f86;
+    button {
+      margin-top: 32px;
+      padding: 14px 32px;
+      border-radius: 30px;
+      border: none;
+      background: #ff5c8a;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .wait{
-      background:rgba(255,255,255,0.85);
-      color:#ff2f86;
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(255, 92, 138, 0.45);
     }
 
-    .footer{
-      margin-top:18px;
-      font-size:14px;
-      opacity:0.85;
+    .footer {
+      margin-top: 42px;
+      font-size: 1rem;
+      font-style: italic;
     }
   </style>
 </head>
-
 <body>
-  <div class="box">
-    <h1>Victoria Itua</h1>
+  <div class="card">
+    <h1>Grace</h1>
+    <h2>My Valentine 💕</h2>
 
     <p>
-      I want to be honest with you and speak from my heart.
-      Since you came into my life, something real has changed for me.
-      Talking to you feels easy, natural, and comforting.
+      I just want you to know how deeply grateful I am for you. Thank you for being my calm, my support, and my constant, even during the moments when I cannot always be there physically.
     </p>
 
     <p>
-      I enjoy our long conversations, the way we understand each other,
-      and the calm I feel just knowing you’re there.
-      I no dey feel like I’m forcing anything with you.
-      Everything just flows.
+      Distance never changes what you mean to me. You show up with patience, kindness, and love in ways that make everything feel lighter. I feel your presence even when I’m far away.
     </p>
 
     <p>
-      I respect you and the way you take your time with things.
-      No pressure at all.
-      But I also know what I feel, and it’s not something small or casual.
-      It’s genuine, steady, and intentional.
+      Thank you for choosing me, for believing in us, and for loving me the way you do. That kind of love is rare, and I never take it for granted.
     </p>
+
+    <div class="heart">💗</div>
 
     <p>
-      <strong>Mo nifẹ rẹ.</strong><br>
-      <span style="font-weight:400">(I love you.)</span>
+      Here’s to this Valentine’s Day, and to many more Valentine celebrations together. No matter the distance, no matter the season, it will always be you.
     </p>
 
-    <p>
-      I’m saying this because I truly want you.
-      I want to choose you properly, treat you with care,
-      and build something real with you.
-    </p>
+    <button onclick="showMessage()">Tap Me</button>
 
-    <div class="question">
-      Victoria, will you be my girlfriend?
-    </div>
-
-    <div class="buttons">
-      <button class="yes" onclick="sayYes()">Yes 💗</button>
-      <button class="wait" onclick="wait()">Let’s take it slow</button>
-    </div>
-
-    <div class="footer">
-      With sincerity,<br>
-      Jamal
-    </div>
+    <div class="footer" id="extraMessage"></div>
   </div>
 
   <script>
-    function sayYes(){
-      const msg = encodeURIComponent("Yes Jamal 💗");
-      window.location.href = "sms:?&body=" + msg;
-    }
-
-    function wait(){
-      alert("That’s okay. I respect you, and I’m here.");
+    function showMessage() {
+      document.getElementById("extraMessage").innerText =
+        "You are loved more than you know, missed more than I show, and cherished always. Happy Valentine’s Day, Grace 💗";
     }
   </script>
 </body>
